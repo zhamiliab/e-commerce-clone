@@ -1,17 +1,25 @@
 import React from 'react';
-
-import HomePage from './pages/homeplage/homepage.component';
-
+import { BrowserRouter, Routes, Route  } from 'react-router-dom';
 import './App.css';
+import HomePage from './pages/homepage/homepage.component';
 
-class App extends React.Component {
-	render() {
-		return (
-			<div className="App">
-				<HomePage />
-			</div>
-		);
-	}
+const HatsPage = () => (
+	<div>
+		<h1>HATS PAGE </h1>
+	</div>
+);
+
+function App() {
+	return (
+		<div>
+			<BrowserRouter>
+				<Routes>
+					<Route exact path="/" element={<HomePage />} />				
+					<Route path="/hats" element={<HatsPage />} />
+				</Routes>
+			</BrowserRouter>
+		</div>
+	);
 }
 
 export default App;
